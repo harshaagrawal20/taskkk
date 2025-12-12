@@ -1,0 +1,1253 @@
+/* ================================================
+   GLOBAL STYLES
+   ================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: #F5F5F5;
+    color: #333333;
+    line-height: 1.5;
+}
+
+/* ================================================
+   HEADER
+   ================================================ */
+.app-header {
+    background: #ffffff;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    height: 80px;
+    padding: 16px 24px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+.logo {
+    width: 60px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #5FA88D;
+}
+
+.header-right {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.btn-signup,
+.btn-signin-top,
+.nav-links {
+    margin-left: 8px;
+}
+
+.btn-signup,
+.btn-signin-top {
+    border: none;
+    border-radius: 24px;
+    height: 40px;
+    padding: 0 28px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.btn-signup {
+    border: 1.5px solid #5FA88D;
+    background: white;
+    color: #5FA88D;
+}
+
+.btn-signup:hover {
+    background: #f0f9f7;
+}
+
+.btn-signin-top {
+    background: #5FA88D;
+    color: white;
+}
+
+.btn-signin-top:hover {
+    background: #52978A;
+}
+
+/* ================================================
+   MAIN WRAPPER
+   ================================================ */
+.main-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    min-height: calc(100vh - 80px);
+}
+
+/* ================================================
+   LEFT PANEL (SIGNUP): Desktop 578x870, Tablet 482x721, Mobile 280x500
+   ================================================ */
+.signup-panel {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 50px;
+    padding-left: 80px;
+    padding-right: 40px;
+    background-color: #F5F5F5;
+}
+
+.signup-container {
+    width: 420px;
+    min-height: auto;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.signup-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2C2C2C;
+    margin-bottom: 0;
+    line-height: 1.2;
+}
+
+/* ================================================
+   SIGNUP OPTIONS
+   ================================================ */
+.signup-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.option-card {
+    background: white;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+}
+
+.option-card:hover {
+    border-color: #5FA88D;
+    box-shadow: 0 4px 12px rgba(95, 168, 141, 0.15);
+}
+
+.option-card-selected {
+    border-color: #5FA88D;
+    background: #F0FAF7;
+}
+
+.option-image {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.option-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.option-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.option-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2C2C2C;
+    line-height: 1.3;
+}
+
+.option-description {
+    font-size: 12px;
+    color: #666666;
+    line-height: 1.5;
+}
+
+/* ================================================
+   SIGNUP BUTTON
+   ================================================ */
+.btn-signup-submit {
+    height: 40px;
+    width: 150px;
+    background: #5FA88D;
+    color: white;
+    border: none;
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 16px;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-signup-submit:hover {
+    background: #52978A;
+    box-shadow: 0 2px 8px rgba(95, 168, 141, 0.3);
+}
+
+.login-link {
+    font-size: 13px;
+    color: #666;
+    text-align: left;
+    margin-top: 0;
+    width: 420px;
+}
+
+.login-link a {
+    color: #2A7CFF;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+    color: #1f66d6;
+}
+
+/* ================================================
+   RIGHT PANEL (FEATURES)
+   ================================================ */
+.features-panel {
+    background: linear-gradient(180deg, #5FA88D 0%, #52978A 100%);
+    color: white;
+    padding: 40px 40px;
+    border-radius: 32px 0 0 0;
+}
+
+.features-container {
+    max-width: 680px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.features-title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 24px;
+    color: white;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 0;
+    margin-bottom: 0;
+    background: transparent;
+    border-radius: 0;
+    transition: background 0.3s ease;
+}
+
+.feature-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.feature-item-expanded {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 16px;
+    align-items: flex-start;
+}
+
+.feature-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.feature-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.feature-name {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.4;
+    color: white;
+}
+
+.feature-description {
+    font-size: 13px;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.feature-dots {
+    display: flex;
+    gap: 6px;
+    list-style: none;
+    margin: 8px 0 0;
+    padding: 0;
+}
+
+.feature-dots li {
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+}
+
+.feature-dots li.active {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* ================================================
+   RESPONSIVE MEDIA QUERIES
+   ================================================ */
+
+/* TABLET: 482x721 signup, 688x242 features */
+@media (max-width: 1024px) {
+    .header-container {
+        height: 70px;
+        justify-content: space-between;
+    }
+
+    .header-left {
+        flex: none;
+    }
+
+    .header-left .logo {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .header-right {
+        display: flex;
+        gap: 12px;
+    }
+
+    .btn-signup,
+    .btn-signin-top {
+        height: 36px;
+        padding: 0 20px;
+        font-size: 12px;
+    }
+
+    .main-wrapper {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        min-height: auto;
+    }
+
+    .signup-panel {
+        padding-top: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .signup-container {
+        width: 450px;
+        min-height: auto;
+        gap: 16px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 24px;
+        padding: 24px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .signup-title {
+        font-size: 22px;
+    }
+
+    .signup-options {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .option-card {
+        padding: 16px;
+        flex-direction: row;
+        text-align: left;
+        gap: 16px;
+    }
+
+    .option-image {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+
+    .option-content {
+        flex: 1;
+    }
+
+    .option-title {
+        font-size: 15px;
+    }
+
+    .option-description {
+        font-size: 12px;
+    }
+
+    .login-link {
+        width: 100%;
+        text-align: left;
+    }
+
+    .features-panel {
+        padding: 50px 40px;
+        border-radius: 32px 32px 0 0;
+    }
+
+    .features-container {
+        max-width: 100%;
+        width: 100%;
+        min-height: auto;
+        gap: 8px;
+    }
+
+    .features-title {
+        font-size: 28px;
+        margin-bottom: 32px;
+        font-weight: 700;
+    }
+
+    .feature-item {
+        padding: 16px 0;
+        gap: 16px;
+        align-items: center;
+    }
+
+    .feature-item-expanded {
+        padding: 24px;
+        margin-bottom: 24px;
+        border-radius: 16px;
+        align-items: flex-start;
+    }
+
+    .feature-icon {
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+    }
+
+    .feature-icon svg {
+        width: 36px;
+        height: 36px;
+    }
+
+    .feature-name {
+        font-size: 17px;
+        font-weight: 600;
+    }
+
+    .feature-description {
+        font-size: 12px;
+    }
+
+    .feature-dots {
+        display: none;
+    }
+}
+
+/* MOBILE: 280x500 signup */
+@media (max-width: 768px) {
+    .app-header {
+        padding: 0;
+    }
+
+    .header-container {
+        height: 40px;
+        padding: 16px 15px;
+        gap: 16px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .logo {
+        width: 40px;
+        height: 32px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .header-right {
+        display: flex;
+    }
+
+    .btn-signup-header,
+    .btn-signin-header {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .main-wrapper {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .signup-panel {
+        padding-top: 58px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        min-height: auto;
+    }
+
+    .signup-container {
+        width: 100%;
+        max-width: 280px;
+        min-height: 500px;
+        gap: 8px;
+        border-radius: 32px;
+        padding: 14px 24px 24px;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .signup-title {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .signup-options {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .option-card {
+        padding: 16px;
+        flex-direction: row;
+        text-align: left;
+        gap: 12px;
+    }
+
+    .option-image {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 0;
+    }
+
+    .option-content {
+        flex: 1;
+        gap: 4px;
+    }
+
+    .option-title {
+        font-size: 14px;
+    }
+
+    .option-description {
+        font-size: 11px;
+    }
+
+    .btn-signup-submit {
+        height: 40px;
+        font-size: 14px;
+        margin-top: 4px;
+    }
+
+    .login-link {
+        font-size: 11px;
+    }
+
+    .features-panel {
+        padding: 24px;
+        margin: 20px;
+        border-radius: 16px;
+    }
+
+    .features-container {
+        width: 100%;
+        min-height: auto;
+        gap: 8px;
+    }
+
+    .features-title {
+        font-size: 18px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .feature-item {
+        padding: 12px 0;
+        gap: 14px;
+        display: none;
+    }
+
+    .feature-item-expanded {
+        padding: 0;
+        border-radius: 0;
+        margin-bottom: 0;
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .feature-icon {
+        width: 56px;
+        height: 56px;
+        margin-bottom: 12px;
+    }
+
+    .feature-icon svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .feature-name {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .feature-description {
+        display: block;
+        font-size: 13px;
+        margin-bottom: 16px;
+    }
+
+    .feature-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 16px;
+    }
+
+    .feature-dots li {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+/* ================================================
+   MODAL OVERLAY & STYLING
+   ================================================ */
+.modal-overlay {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    padding: 20px;
+    z-index: 1000;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-container {
+    position: relative;
+    background: white;
+    border-radius: 32px 32px 0 0;
+    padding: 24px;
+    max-width: 744px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.modal-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #999;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: #333;
+}
+
+.modal-header {
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #E8E8E8;
+}
+
+.modal-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a1a1a;
+    line-height: 1.3;
+}
+
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2C2C2C;
+    margin-bottom: 8px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-row:has(.form-group:only-child) {
+    grid-template-columns: 1fr;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #4A4A4A;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.required {
+    color: #e74c3c;
+    font-weight: 600;
+}
+
+.form-input,
+select.form-input {
+    height: 40px;
+    border: 1px solid #D8D8D8;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 13px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+    background: white;
+}
+
+.form-input:focus,
+select.form-input:focus {
+    outline: none;
+    border-color: #5FA88D;
+    box-shadow: 0 0 0 3px rgba(95, 168, 141, 0.1);
+}
+
+.input-with-prefix {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.country-code {
+    width: 100px;
+    height: 40px;
+    border: 1px solid #D8D8D8;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 12px;
+    background: white;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.country-code:focus {
+    outline: none;
+    border-color: #5FA88D;
+}
+
+.input-with-prefix .form-input {
+    flex: 1;
+}
+
+.file-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 40px;
+}
+
+.file-input {
+    display: none;
+}
+
+.file-button {
+    background: #F5F5F5;
+    border: 1px solid #D8D8D8;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #4A4A4A;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.file-button:hover {
+    background: #E8E8E8;
+    border-color: #5FA88D;
+}
+
+.file-name {
+    font-size: 12px;
+    color: #999;
+    flex: 1;
+}
+
+.checkbox-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkbox-input {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #5FA88D;
+    flex-shrink: 0;
+}
+
+.checkbox-label {
+    font-size: 12px;
+    color: #4A4A4A;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.link {
+    color: #5FA88D;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #E8E8E8;
+}
+
+.btn-cancel,
+.btn-submit {
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0 24px;
+}
+
+.btn-cancel {
+    background: white;
+    color: #e74c3c;
+    border: 1px solid #E8E8E8;
+}
+
+.btn-cancel:hover {
+    background: #FEF5F5;
+    border-color: #e74c3c;
+}
+
+.btn-submit {
+    background: #5FA88D;
+    color: white;
+    box-shadow: 0 2px 8px rgba(95, 168, 141, 0.2);
+}
+
+.btn-submit:hover {
+    background: #52978A;
+    box-shadow: 0 4px 12px rgba(95, 168, 141, 0.3);
+}
+
+/* ================================================
+   MODAL RESPONSIVE
+   ================================================ */
+
+@media (max-width: 1024px) {
+    .modal-container {
+        max-width: 744px;
+        padding: 24px;
+        border-radius: 32px 32px 0 0;
+    }
+
+    .modal-header {
+        margin-bottom: 24px;
+    }
+
+    .modal-title {
+        font-size: 19px;
+    }
+
+    .section-title {
+        font-size: 15px;
+        margin-bottom: 12px;
+    }
+
+    .form-section {
+        gap: 14px;
+    }
+
+    .form-row {
+        gap: 14px;
+    }
+
+    .form-label {
+        font-size: 12px;
+    }
+
+    .form-input,
+    select.form-input {
+        height: 38px;
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+
+    .country-code {
+        height: 38px;
+        font-size: 11px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-overlay {
+        padding: 0;
+        align-items: flex-end;
+    }
+
+    .modal-container {
+        max-width: 320px;
+        width: 100%;
+        padding: 20px;
+        border-radius: 32px 32px 0 0;
+        max-height: 568px;
+        margin-bottom: -20px;
+    }
+
+    .modal-close {
+        top: 20px;
+        right: 20px;
+        font-size: 20px;
+    }
+
+    .modal-header {
+        margin-bottom: 20px;
+        padding-bottom: 16px;
+    }
+
+    .modal-title {
+        font-size: 18px;
+    }
+
+    .registration-form {
+        gap: 20px;
+    }
+
+    .form-section {
+        gap: 12px;
+    }
+
+    .section-title {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .form-label {
+        font-size: 11px;
+    }
+
+    .form-input,
+    select.form-input {
+        height: 36px;
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+
+    .country-code {
+        width: 90px;
+        height: 36px;
+        font-size: 10px;
+    }
+
+    .input-with-prefix {
+        gap: 6px;
+    }
+
+    .file-input-wrapper {
+        height: 36px;
+    }
+
+    .file-button {
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+
+    .file-name {
+        font-size: 11px;
+    }
+
+    .checkbox-label {
+        font-size: 11px;
+    }
+
+    .form-actions {
+        gap: 10px;
+        margin-top: 16px;
+        padding-top: 16px;
+    }
+
+    .btn-cancel,
+    .btn-submit {
+        height: 38px;
+        font-size: 13px;
+        padding: 0 16px;
+    }
+}
+
+/* ================================================
+   iPAD SPECIFIC STYLES (744px width)
+   ================================================ */
+@media (min-width: 744px) and (max-width: 1024px) {
+    /* Customer Registration Modal: 744x1078px, top: 55px */
+    #customerForm .modal-container {
+        width: 744px;
+        height: 1078px;
+        top: 55px;
+        border-top-left-radius: 32px;
+        border-top-right-radius: 32px;
+        padding: 24px;
+        gap: 10px;
+    }
+
+    /* Transporter Registration Modal: 744x598px, top: 535px */
+    #transporterForm .modal-container {
+        width: 744px;
+        height: 598px;
+        top: 535px;
+        border-top-left-radius: 32px;
+        border-top-right-radius: 32px;
+        padding: 24px;
+        gap: 10px;
+    }
+
+    /* Truck Registration Modal: 744x513px, top: 620px */
+    .modal-container[data-type="fleet"] {
+        width: 744px;
+        height: 513px;
+        top: 620px;
+        border-top-left-radius: 32px;
+        border-top-right-radius: 32px;
+        padding: 24px;
+        gap: 10px;
+    }
+
+    /* Truck Supplier Modal: 744x564px, top: 569px */
+    .modal-container[data-type="broker"] {
+        width: 744px;
+        height: 564px;
+        top: 569px;
+        border-top-left-radius: 32px;
+        border-top-right-radius: 32px;
+        padding: 24px;
+        gap: 10px;
+    }
+
+    /* Reset Password Modal: 744x272px, top: 861px */
+    #resetPasswordModal .modal-container {
+        width: 744px;
+        height: 272px;
+        top: 861px;
+        border-top-left-radius: 32px;
+        border-top-right-radius: 32px;
+        padding: 24px;
+        gap: 10px;
+    }
+
+    /* General iPad modal adjustments */
+    .modal-container {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 32px 32px 0 0;
+        padding: 24px;
+        gap: 10px;
+        overflow-y: auto;
+    }
+
+    .modal-overlay {
+        align-items: flex-end;
+        padding: 0;
+    }
+
+    /* Form spacing adjustments for iPad */
+    .registration-form {
+        gap: 10px;
+    }
+
+    .form-section {
+        gap: 10px;
+    }
+
+    .form-row {
+        gap: 12px;
+    }
+
+    .modal-header {
+        margin-bottom: 20px;
+        padding-bottom: 16px;
+    }
+
+    .section-title {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .form-label {
+        font-size: 12px;
+    }
+
+    .form-input,
+    select.form-input {
+        height: 38px;
+        font-size: 12px;
+    }
+
+    .country-code {
+        height: 38px;
+        font-size: 11px;
+    }
+
+    .form-actions {
+        margin-top: 16px;
+        padding-top: 16px;
+    }
+}
+

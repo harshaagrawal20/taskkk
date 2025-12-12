@@ -1,0 +1,529 @@
+/* ================================================
+   GLOBAL STYLES
+   ================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #333333;
+    line-height: 1.5;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+/* ================================================
+   HEADER
+   ================================================ */
+.app-header {
+    height: 80px;
+    background: white;
+    border-bottom: 1px solid #E8E8E8;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1440px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex: 1;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #666;
+    font-size: 13px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #5FA88D;
+}
+
+.header-right {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-signup-header,
+.btn-signin-header {
+    height: 40px;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0 20px;
+}
+
+.btn-signup-header {
+    background: white;
+    color: #5FA88D;
+    border: 1px solid #5FA88D;
+}
+
+.btn-signup-header:hover {
+    background: #F0FAF7;
+}
+
+.btn-signin-header {
+    background: #5FA88D;
+    color: white;
+}
+
+.btn-signin-header:hover {
+    background: #52978A;
+}
+
+/* ================================================
+   MODAL OVERLAY & CONTAINER
+   ================================================ */
+.modal-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    padding: 20px;
+    z-index: 1000;
+}
+
+.modal-container {
+    position: relative;
+    background: white;
+    border-radius: 32px 32px 0 0;
+    padding: 24px;
+    max-width: 744px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.modal-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #999;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: #333;
+}
+
+/* ================================================
+   MODAL HEADER
+   ================================================ */
+.modal-header {
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #E8E8E8;
+}
+
+.modal-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a1a1a;
+    line-height: 1.3;
+}
+
+/* ================================================
+   FORM STYLING
+   ================================================ */
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2C2C2C;
+    margin-bottom: 8px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-row:has(.form-group:only-child) {
+    grid-template-columns: 1fr;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #4A4A4A;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.required {
+    color: #e74c3c;
+    font-weight: 600;
+}
+
+.form-input,
+select.form-input {
+    height: 40px;
+    border: 1px solid #D8D8D8;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 13px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+    background: white;
+}
+
+.form-input:focus,
+select.form-input:focus {
+    outline: none;
+    border-color: #5FA88D;
+    box-shadow: 0 0 0 3px rgba(95, 168, 141, 0.1);
+}
+
+/* Input with Prefix (Country Code) */
+.input-with-prefix {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.country-code {
+    width: 100px;
+    height: 40px;
+    border: 1px solid #D8D8D8;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 12px;
+    background: white;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.country-code:focus {
+    outline: none;
+    border-color: #5FA88D;
+}
+
+.input-with-prefix .form-input {
+    flex: 1;
+}
+
+/* Checkbox */
+.checkbox-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkbox-input {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #5FA88D;
+    flex-shrink: 0;
+}
+
+.checkbox-label {
+    font-size: 12px;
+    color: #4A4A4A;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.link {
+    color: #5FA88D;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+/* ================================================
+   FORM ACTIONS
+   ================================================ */
+.form-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #E8E8E8;
+}
+
+.btn-cancel,
+.btn-submit {
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0 24px;
+}
+
+.btn-cancel {
+    background: white;
+    color: #e74c3c;
+    border: 1px solid #E8E8E8;
+}
+
+.btn-cancel:hover {
+    background: #FEF5F5;
+    border-color: #e74c3c;
+}
+
+.btn-submit {
+    background: #5FA88D;
+    color: white;
+    box-shadow: 0 2px 8px rgba(95, 168, 141, 0.2);
+}
+
+.btn-submit:hover {
+    background: #52978A;
+    box-shadow: 0 4px 12px rgba(95, 168, 141, 0.3);
+}
+
+/* ================================================
+   RESPONSIVE MEDIA QUERIES
+   ================================================ */
+
+/* TABLET: Same dimensions as desktop */
+@media (max-width: 1024px) {
+    .header-container {
+        padding: 0 30px;
+    }
+
+    .modal-container {
+        max-width: 744px;
+        padding: 24px;
+        border-radius: 32px 32px 0 0;
+    }
+
+    .modal-header {
+        margin-bottom: 24px;
+    }
+
+    .modal-title {
+        font-size: 19px;
+    }
+
+    .section-title {
+        font-size: 15px;
+        margin-bottom: 12px;
+    }
+
+    .form-section {
+        gap: 14px;
+    }
+
+    .form-row {
+        gap: 14px;
+    }
+
+    .form-label {
+        font-size: 12px;
+    }
+
+    .form-input,
+    select.form-input {
+        height: 38px;
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+
+    .country-code {
+        height: 38px;
+        font-size: 11px;
+        padding: 8px;
+    }
+}
+
+/* MOBILE: 320x568 */
+@media (max-width: 768px) {
+    .app-header {
+        height: 60px;
+        padding: 0 16px;
+    }
+
+    .header-container {
+        padding: 0 12px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .modal-overlay {
+        padding: 0;
+        align-items: flex-end;
+    }
+
+    .modal-container {
+        max-width: 320px;
+        width: 100%;
+        padding: 20px;
+        border-radius: 32px 32px 0 0;
+        max-height: 568px;
+        margin-bottom: -20px;
+    }
+
+    .modal-close {
+        top: 20px;
+        right: 20px;
+        font-size: 20px;
+    }
+
+    .modal-header {
+        margin-bottom: 20px;
+        padding-bottom: 16px;
+    }
+
+    .modal-title {
+        font-size: 18px;
+    }
+
+    .registration-form {
+        gap: 20px;
+    }
+
+    .form-section {
+        gap: 12px;
+    }
+
+    .section-title {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .form-label {
+        font-size: 11px;
+    }
+
+    .form-input,
+    select.form-input {
+        height: 36px;
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+
+    .country-code {
+        width: 90px;
+        height: 36px;
+        font-size: 10px;
+    }
+
+    .input-with-prefix {
+        gap: 6px;
+    }
+
+    .checkbox-label {
+        font-size: 11px;
+    }
+
+    .form-actions {
+        gap: 10px;
+        margin-top: 16px;
+        padding-top: 16px;
+    }
+
+    .btn-cancel,
+    .btn-submit {
+        height: 38px;
+        font-size: 13px;
+        padding: 0 16px;
+    }
+}
