@@ -1,4 +1,4 @@
-ï»¿<%@ Page Language="C#" MasterPageFile="~/Site.Master" %>
+<%@ Page Language="C#" MasterPageFile="~/Site.Master" %>
 <%@ Register Src="~/UserControls/FeaturesPanel.ascx" TagPrefix="uc" TagName="FeaturesPanel" %>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
@@ -74,7 +74,7 @@
     <div class="modal-overlay" id="customerModal" style="display:none;">
         <div class="modal-container">
             
-            <button type="button" class="modal-close" onclick="closeModal()">Ã—</button>
+            <button type="button" class="modal-close" onclick="closeModal('customer')">×</button>
 
             <div class="modal-header">
                 <h1 class="modal-title">Customer / Shipper Registration</h1>
@@ -287,7 +287,280 @@
 
                 <!-- FORM ACTIONS -->
                 <div class="form-actions">
-                    <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+                    <button type="button" class="btn-cancel" onclick="closeModal('customer')">Cancel</button>
+                    <button type="submit" class="btn-submit">Create Account</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- TRANSPORTER REGISTRATION MODAL -->
+    <div class="modal-overlay" id="transporterModal" style="display:none;">
+        <div class="modal-container">
+            
+            <button type="button" class="modal-close" onclick="closeModal('transporter')">×</button>
+
+            <div class="modal-header">
+                <h1 class="modal-title">Transporter / Booking Agent Registration</h1>
+            </div>
+
+            <form class="registration-form">
+
+                <!-- BASIC DETAILS SECTION -->
+                <div class="form-section">
+                    <div class="section-title-bar">
+                        <h2 class="section-title">Basic Details</h2>
+                    </div>
+                    
+                    <!-- Row 1: Transport Name & Company Legal Status -->
+                    <div class="form-row row-2col">
+                        <div class="form-group">
+                            <label class="form-label">Transport Name<span class="required">*</span></label>
+                            <input type="text" class="form-input" placeholder="Enter Transport Name" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Company Legal Status<span class="required">*</span></label>
+                            <select class="form-input" required>
+                                <option value="">Select your Legal Status</option>
+                                <option value="proprietorship">Proprietorship</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="pvt-ltd">Private Limited</option>
+                                <option value="llp">LLP</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: First Name & Last Name -->
+                    <div class="form-row row-2col">
+                        <div class="form-group">
+                            <label class="form-label">First Name<span class="required">*</span></label>
+                            <input type="text" class="form-input" placeholder="Enter First Name" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Last Name<span class="required">*</span></label>
+                            <input type="text" class="form-input" placeholder="Enter Last Name" required />
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Mobile No & WhatsApp No -->
+                    <div class="form-row row-2col">
+                        <div class="form-group">
+                            <label class="form-label">Mobile No.<span class="required">*</span></label>
+                            <div class="input-with-prefix">
+                                <div class="country-code-wrapper">
+                                    <img src="assets/india-flag.png" alt="IN" class="flag-icon" onerror="this.style.display='none'" />
+                                    <span class="code-text">+91</span>
+                                </div>
+                                <input type="tel" class="form-input" placeholder="Mobile No." required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Whatsapp No.<span class="required">*</span></label>
+                            <div class="input-with-prefix">
+                                <div class="country-code-wrapper">
+                                    <img src="assets/india-flag.png" alt="IN" class="flag-icon" onerror="this.style.display='none'" />
+                                    <span class="code-text">+91</span>
+                                </div>
+                                <input type="tel" class="form-input" placeholder="Mobile No." required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 4: Email & Pan No -->
+                    <div class="form-row row-2col">
+                        <div class="form-group">
+                            <label class="form-label">Email<span class="required">*</span></label>
+                            <input type="email" class="form-input" placeholder="username@domain.com" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Pan No.</label>
+                            <input type="text" class="form-input" placeholder="Ex. ABCDE1234F" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TERMS CHECKBOX -->
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="termsCheckTransporter" class="checkbox-input" required />
+                    <label for="termsCheckTransporter" class="checkbox-label">
+                        I accept <a href="#" class="link">Terms of Service</a> & <a href="#" class="link">Privacy Policy</a>
+                    </label>
+                </div>
+
+                <!-- FORM ACTIONS -->
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" onclick="closeModal('transporter')">Cancel</button>
+                    <button type="submit" class="btn-submit">Create Account</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- FLEET OWNER REGISTRATION MODAL -->
+    <div class="modal-overlay" id="fleetModal" style="display:none;">
+        <div class="modal-container">
+            
+            <button type="button" class="modal-close" onclick="closeModal('fleet')">×</button>
+
+            <div class="modal-header">
+                <h1 class="modal-title">Truck Operator / Fleet Owner Registration</h1>
+            </div>
+
+            <form class="registration-form">
+
+                <!-- BASIC DETAILS SECTION -->
+                <div class="form-section">
+                    <div class="section-title-bar">
+                        <h2 class="section-title">Basic Details</h2>
+                    </div>
+                    
+                    <!-- Row 1: First Name & Last Name -->
+                    <div class="form-row row-2col">
+                        <div class="form-group">
+                            <label class="form-label">First Name<span class="required">*</span></label>
+                            <input type="text" class="form-input" placeholder="Enter First Name" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Last Name<span class="required">*</span></label>
+                            <input type="text" class="form-input" placeholder="Enter Last Name" required />
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Mobile No & WhatsApp No -->
+                    <div class="form-row row-2col">
+                        <div class="form-group">
+                            <label class="form-label">Mobile No.<span class="required">*</span></label>
+                            <div class="input-with-prefix">
+                                <div class="country-code-wrapper">
+                                    <img src="assets/india-flag.png" alt="IN" class="flag-icon" onerror="this.style.display='none'" />
+                                    <span class="code-text">+91</span>
+                                </div>
+                                <input type="tel" class="form-input" placeholder="Mobile No." required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Whatsapp No.<span class="required">*</span></label>
+                            <div class="input-with-prefix">
+                                <div class="country-code-wrapper">
+                                    <img src="assets/india-flag.png" alt="IN" class="flag-icon" onerror="this.style.display='none'" />
+                                    <span class="code-text">+91</span>
+                                </div>
+                                <input type="tel" class="form-input" placeholder="Mobile No." required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Email & Pan No -->
+                    <div class="form-row row-2col">
+                        <div class="form-group">
+                            <label class="form-label">Email<span class="required">*</span></label>
+                            <input type="email" class="form-input" placeholder="username@domain.com" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Pan No.</label>
+                            <input type="text" class="form-input" placeholder="Ex. ABCDE1234F" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TERMS CHECKBOX -->
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="termsCheckFleet" class="checkbox-input" required />
+                    <label for="termsCheckFleet" class="checkbox-label">
+                        I accept <a href="#" class="link">Terms of Service</a> & <a href="#" class="link">Privacy Policy</a>
+                    </label>
+                </div>
+
+                <!-- FORM ACTIONS -->
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" onclick="closeModal('fleet')">Cancel</button>
+                    <button type="submit" class="btn-submit">Create Account</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- BROKER REGISTRATION MODAL -->
+    <div class="modal-overlay" id="brokerModal" style="display:none;">
+        <div class="modal-container">
+            
+            <button type="button" class="modal-close" onclick="closeModal('broker')">×</button>
+
+            <div class="modal-header">
+                <h1 class="modal-title">Broker / Truck Supplier Registration</h1>
+            </div>
+
+            <form class="registration-form">
+
+                <!-- BASIC DETAILS SECTION -->
+                <div class="form-section">
+                    <div class="section-title-bar">
+                        <h2 class="section-title">Basic Details</h2>
+                    </div>
+                    
+                    <!-- Row 1: First Name & Last Name -->
+                    <div class="form-row row-2col">
+                        <div class="form-group">
+                            <label class="form-label">First Name<span class="required">*</span></label>
+                            <input type="text" class="form-input" placeholder="Enter First Name" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Last Name<span class="required">*</span></label>
+                            <input type="text" class="form-input" placeholder="Enter Last Name" required />
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Mobile No & WhatsApp No -->
+                    <div class="form-row row-2col">
+                        <div class="form-group">
+                            <label class="form-label">Mobile No.<span class="required">*</span></label>
+                            <div class="input-with-prefix">
+                                <div class="country-code-wrapper">
+                                    <img src="assets/india-flag.png" alt="IN" class="flag-icon" onerror="this.style.display='none'" />
+                                    <span class="code-text">+91</span>
+                                </div>
+                                <input type="tel" class="form-input" placeholder="Mobile No." required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Whatsapp No.<span class="required">*</span></label>
+                            <div class="input-with-prefix">
+                                <div class="country-code-wrapper">
+                                    <img src="assets/india-flag.png" alt="IN" class="flag-icon" onerror="this.style.display='none'" />
+                                    <span class="code-text">+91</span>
+                                </div>
+                                <input type="tel" class="form-input" placeholder="Mobile No." required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Email & Pan No -->
+                    <div class="form-row row-2col">
+                        <div class="form-group">
+                            <label class="form-label">Email<span class="required">*</span></label>
+                            <input type="email" class="form-input" placeholder="username@domain.com" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Pan No.</label>
+                            <input type="text" class="form-input" placeholder="Ex. ABCDE1234F" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TERMS CHECKBOX -->
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="termsCheckBroker" class="checkbox-input" required />
+                    <label for="termsCheckBroker" class="checkbox-label">
+                        I accept <a href="#" class="link">Terms of Service</a> & <a href="#" class="link">Privacy Policy</a>
+                    </label>
+                </div>
+
+                <!-- FORM ACTIONS -->
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" onclick="closeModal('broker')">Cancel</button>
                     <button type="submit" class="btn-submit">Create Account</button>
                 </div>
 
@@ -299,23 +572,45 @@
 
 <asp:Content ID="ScriptsContent" ContentPlaceHolderID="scripts" runat="server">
     <script>
-        // Open modal
+        // Open modal based on type
         function openModal(type) {
-            document.getElementById('customerModal').style.display = 'flex';
-            document.body.classList.add('modal-open');
+            // Close all modals first
+            closeAllModals();
+            
+            var modalId = type + 'Modal';
+            var modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'flex';
+                document.body.classList.add('modal-open');
+            }
         }
 
-        // Close modal
-        function closeModal() {
-            document.getElementById('customerModal').style.display = 'none';
+        // Close specific modal
+        function closeModal(type) {
+            var modalId = type + 'Modal';
+            var modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.classList.remove('modal-open');
+            }
+        }
+
+        // Close all modals
+        function closeAllModals() {
+            var modals = document.querySelectorAll('.modal-overlay');
+            modals.forEach(function(modal) {
+                modal.style.display = 'none';
+            });
             document.body.classList.remove('modal-open');
         }
 
         // Close modal when clicking outside
-        document.getElementById('customerModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
+        document.querySelectorAll('.modal-overlay').forEach(function(modal) {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeAllModals();
+                }
+            });
         });
 
         // File input label update
